@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  padding: 0%;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 64.5%;
+  font-family: "Poppins", sans-serif;
+}
+
+.header {
+  width: 100%;
+  margin: 50px 0px;
+  text-align: center;
+
+  /* Por mientras */
+  /* opacity: 0.1; */
+}
+
+.header__title {
+  font-size: 4rem;
+}
+
+.figGeo {
+  width: 100%;
+  height: fit-content;
+  padding: 80px 0px;
+  display: flex;
+  justify-content: space-around;
+  overflow-x: hidden;
+  /* Por mientras */
+  /* opacity: 0.1; */
+}
+
+.figGeo__shape {
+  width: 20%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.figGeo__shape img {
+  width: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 450ms all;
+  position: relative;
+}
+
+.figGeo__shape img:hover {
+  transform: scale(1.2);
+}
+
+.calculator__content p {
+  margin-bottom: 20px;
+}
