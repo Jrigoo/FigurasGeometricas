@@ -1,0 +1,36 @@
+.footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5rem;
+}
+
+.footer__p {
+  font-size: 0.9rem;
+  margin: 0px 20px;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer__social_media {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+.footer__social_media a {
+  width: 50px;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+.footer__social_media a img {
+  height: 7vh;
+}

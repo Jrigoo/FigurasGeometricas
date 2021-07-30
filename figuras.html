@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/figuras.css" />
+    <link rel="stylesheet" href="./css/calculadora.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <title>Calculadora de Figuras geometricas</title>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <h1 class="header__title">Figuras geometricas</h1>
+    </header>
+    <section class="figGeo" id="figGeo">
+      <div class="figGeo__shape">
+        <img
+          id="square-btn"
+          src="https://image.flaticon.com/icons/png/512/747/747552.png"
+          alt=""
+        />
+      </div>
+      <div class="figGeo__shape">
+        <img
+          id="triangle-btn"
+          src="https://image.flaticon.com/icons/png/512/262/262430.png"
+          alt=""
+        />
+      </div>
+      <div class="figGeo__shape">
+        <img
+          id="circle-btn"
+          src="https://image.flaticon.com/icons/png/512/594/594913.png"
+          alt=""
+        />
+      </div>
+      <div class="figGeo__shape">
+        <img
+          id="rect-btn"
+          src="https://image.flaticon.com/icons/png/512/2628/2628083.png"
+          alt=""
+        />
+      </div>
+    </section>
+    <div class="calculator" id="calculator">
+      <div class="calculator__header">
+        <h1 class="calculator__title" id="calcTitle">{{}}</h1>
+        <img
+          class="calculator__close-btn"
+          id="calc__close-btn"
+          src="https://image.flaticon.com/icons/png/512/463/463612.png"
+          alt=""
+        />
+      </div>
+      <div class="calculator__content">
+        <img
+          class="calculator__img"
+          id="calcImg"
+          src="https://image.flaticon.com/icons/png/512/747/747552.png"
+          alt=""
+        />
+        <div class="calculator__functionality" id="calculator__functionality">
+          <button class="calculator__btn" id="perimetroBtn">Perimetro</button>
+          <button class="calculator__btn" id="areaBtn">Area</button>
+        </div>
+        <h3 id="calculator__input--title">{{}}</h3>
+        <form action="" class="calculator__form" id="calcForm"></form>
+        <button class="calculator__btn-submit" id="calcBtnSubmit">
+          Calcular
+        </button>
+        <h5 class="calculator__result" id="calcResult">x</h5>
+        <p>Resultado del calculo (area por default)</p>
+      </div>
+    </div>
+    <footer class="footer" id="footer">
+      <div class="footer__p">
+        <p>Creado en HTML--CSS--JS por Jrigo.</p>
+      </div>
+      <div class="footer__social_media">
+        <a href="https://www.instagram.com/jrigo_/"
+          ><img
+            src="https://image.flaticon.com/icons/png/512/174/174855.png"
+            alt=""
+        /></a>
+        <a href="https://www.linkedin.com/in/juan-riquelme-8870961b4/"
+          ><img
+            src="https://image.flaticon.com/icons/png/512/174/174857.png"
+            alt=""
+        /></a>
+      </div>
+    </footer>
+  </body>
+  <script src="./figuras.js"></script>
+</html>
