@@ -95,6 +95,8 @@ class Calculator {
   validateFigure(id) {
     switch (id) {
       case "Cuadrado":
+        calcForm.innerHTML = "";
+        this.inputsIds = [];
         calculator.calcTitle("Cuadrado", "Ingrese el valor del lado");
         if (this.inputsIds == "") {
           this.inputsIds.push(this.createNewElement(0));
@@ -119,12 +121,16 @@ class Calculator {
         }
         break;
       case "Circulo":
+        calcForm.innerHTML = "";
+        this.inputsIds = [];
         calculator.calcTitle("Circulo", "Ingrese el radio");
         if (this.inputsIds == "") {
           this.inputsIds.push(this.createNewElement(0));
         }
         break;
       case "Rectangulo":
+        calcForm.innerHTML = "";
+        this.inputsIds = [];
         calculator.calcTitle("Rectangulo", "Ingrese el lado 1 2");
         if (this.inputsIds == "") {
           this.inputsIds.push(this.createNewElement(0));
