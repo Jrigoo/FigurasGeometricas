@@ -10,34 +10,38 @@
     <title>Calculadora de Figuras geometricas</title>
   </head>
   <body>
-    <header class="header" id="header">
+    <header not-calc-section class="header" id="header">
       <h1 class="header__title">Figuras geometricas</h1>
     </header>
-    <section class="figGeo" id="figGeo">
+    <section not-calc-section class="figGeo" id="figGeo">
       <div class="figGeo__shape">
         <img
-          id="square-btn"
+          figure-btn
+          id="Cuadrado"
           src="https://image.flaticon.com/icons/png/512/747/747552.png"
           alt=""
         />
       </div>
       <div class="figGeo__shape">
         <img
-          id="triangle-btn"
+          figure-btn
+          id="Triangulo"
           src="https://image.flaticon.com/icons/png/512/262/262430.png"
           alt=""
         />
       </div>
       <div class="figGeo__shape">
         <img
-          id="circle-btn"
+          figure-btn
+          id="Circulo"
           src="https://image.flaticon.com/icons/png/512/594/594913.png"
           alt=""
         />
       </div>
       <div class="figGeo__shape">
         <img
-          id="rect-btn"
+          figure-btn
+          id="Rectangulo"
           src="https://image.flaticon.com/icons/png/512/2628/2628083.png"
           alt=""
         />
@@ -61,19 +65,20 @@
           alt=""
         />
         <div class="calculator__functionality" id="calculator__functionality">
-          <button class="calculator__btn" id="perimetroBtn">Perimetro</button>
-          <button class="calculator__btn" id="areaBtn">Area</button>
+          <button class="calculator__btn" id="chooseBtn">Perimetro</button>
         </div>
         <h3 id="calculator__input--title">{{}}</h3>
-        <form action="" class="calculator__form" id="calcForm"></form>
+        <form action="" class="calculator__form" id="calcForm">
+          <!-- <input type="number" id="calcInput0" /> -->
+        </form>
         <button class="calculator__btn-submit" id="calcBtnSubmit">
           Calcular
         </button>
         <h5 class="calculator__result" id="calcResult">x</h5>
-        <p>Resultado del calculo (area por default)</p>
+        <p>Resultado del calculo</p>
       </div>
     </div>
-    <footer class="footer" id="footer">
+    <footer not-calc-section class="footer" id="footer">
       <div class="footer__p">
         <p>Creado en HTML--CSS--JS por Jrigo.</p>
       </div>
