@@ -1,149 +1,88 @@
-const squareBtn = document.getElementById("square-btn");
-const triangleBtn = document.getElementById("triangle-btn");
-const cirlceBtn = document.getElementById("circle-btn");
-const rectBtn = document.getElementById("rect-btn");
-/* ----- */
+const figureBtns = document.querySelectorAll("[figure-btn]");
 const calcCloseBtn = document.getElementById("calc__close-btn");
 const calcTitle = document.getElementById("calcTitle");
 const calcInputTitle = document.getElementById("calculator__input--title");
-const resultText = document.getElementById("calcResult");
-const calcImg = document.getElementById("calcImg");
-
-/* ---- */
-const header = document.getElementById("header");
-const figGeo = document.getElementById("figGeo");
-const footer = document.getElementById("footer");
+const notCalcSection = document.querySelectorAll("[not-calc-section]");
 const calculatorDiv = document.getElementById("calculator");
-
-/* ----- */
-const perimetroBtn = document.getElementById("perimetroBtn");
-const areaBtn = document.getElementById("areaBtn");
+const chooseBtn = document.getElementById("chooseBtn");
 const calcForm = document.getElementById("calcForm");
 const calcBtnSubmit = document.getElementById("calcBtnSubmit");
+const resultText = document.getElementById("calcResult");
+const inputs = document.querySelectorAll("input");
 
 class Calculator {
   constructor() {
     this.reset();
     this.calcTitle("");
-    this.btn = "";
+    this.shape = "";
+    this.inputsIds = [];
   }
-  cuadrado(img) {
-    this.whileCalculate();
-    this.calcTitle("Cuadrado", "Ingrese el valor del lado");
-    this.changeImg(img);
-    let lista = [];
-    for (let i = 0; i < 1; i++) {
-      lista.push(this.createNewElement(i));
-    }
-
-    calcBtnSubmit.addEventListener("click", () => {
-      let numeros = [];
-      for (let i = 0; i < lista.length; i++) {
-        numeros.push(document.getElementById(lista[i]).value);
-      }
-      if (this.btn == "Perimetro") {
-        this.calcResult(4 * numeros[0], this.btn);
-      } else {
-        this.calcResult(numeros[0] * numeros[0], this.btn);
-      }
+  reset() {
+    calculatorDiv.style.display = "none";
+    resultText.innerText = "x";
+    this.calculatorType = "Perimetro";
+    chooseBtn.innerText = "Perimetro";
+    calcForm.innerHTML = "";
+    this.inputsIds = [];
+    notCalcSection.forEach((section) => {
+      section.style.opacity = 1;
+    });
+    this.cleanInputs();
+  }
+  whileCalculate() {
+    calculatorDiv.style.display = "";
+    notCalcSection.forEach((section) => {
+      section.style.opacity = 0.2;
     });
   }
-  triangulo(img) {
-    this.whileCalculate();
-    this.calcTitle("Triangulo", "Ingrese lado 1 2 3 y base");
-    this.changeImg(img);
-    let lista = [];
-
-    for (let i = 0; i < 2; i++) {
-      lista.push(this.createNewElement(i));
+  cuadrado() {
+    let lado = document.getElementById(this.inputsIds[0]).value;
+    if (this.calculatorType == "Perimetro") {
+      this.calcResult(4 * lado);
+    } else {
+      this.calcResult(lado * lado);
     }
-
-    calcBtnSubmit.addEventListener("click", () => {
-      let numeros = [];
-      for (let i = 0; i < lista.length; i++) {
-        numeros.push(document.getElementById(lista[i]).value);
-      }
-
-      if (this.btn == "Perimetro") {
-        this.calcResult(numeros[0] + numeros[1] + numeros[2], this.btn);
-      } else {
-        this.calcResult((numeros[0] * numeros[1]) / 2, this.btn);
-      }
-    });
   }
-  circulo(img) {
-    this.whileCalculate();
-    this.calcTitle("Circulo", "Ingrese el radio");
-    this.changeImg(img);
+  triangulo() {
+    let base = document.getElementById(this.inputsIds[0]).value;
+    let altura_lado = document.getElementById(this.inputsIds[1]).value;
+    if (this.inputsIds[2] != null) {
+      let lado_extra = document.getElementById(this.inputsIds[2]).value;
+      this.calcResult(
+        parseInt(base) + parseInt(altura_lado) + parseInt(lado_extra)
+      );
+    } else {
+      this.calcResult((parseInt(base) * parseInt(altura_lado)) / 2);
+    }
+  }
+  circulo() {
     const PI = Math.PI;
-    let lista = [];
-    for (let i = 0; i < 1; i++) {
-      lista.push(this.createNewElement(i));
+    let radio = document.getElementById(this.inputsIds[0]).value;
+    if (this.calculatorType == "Perimetro") {
+      this.calcResult(2 * radio * PI);
+    } else {
+      this.calcResult(PI * radio ** 2);
     }
-
-    calcBtnSubmit.addEventListener("click", () => {
-      let numeros = [];
-      for (let i = 0; i < lista.length; i++) {
-        numeros.push(document.getElementById(lista[i]).value);
-      }
-
-      if (this.btn == "Perimetro") {
-        this.calcResult(2 * numeros[0] * PI, this.btn);
-      } else {
-        this.calcResult(PI * numeros[0] ** 2, this.btn);
-      }
-    });
   }
-  rectangulo(img) {
-    this.whileCalculate();
-    this.calcTitle("Rectangulo", "Ingrese el lado 1 2");
-    this.changeImg(img);
-    let lista = [];
-    for (let i = 0; i < 2; i++) {
-      lista.push(this.createNewElement(i));
+  rectangulo() {
+    let lado1 = document.getElementById(this.inputsIds[0]).value;
+    let lado2 = document.getElementById(this.inputsIds[1]).value;
+    if (this.calculatorType == "Perimetro") {
+      this.calcResult(2 * lado1 + 2 * lado2);
+    } else {
+      this.calcResult(lado1 * lado2);
     }
-    if (this.btn == "Perimetro") {
-      lista.push(this.createNewElement(2));
-    }
-    calcBtnSubmit.addEventListener("click", () => {
-      let numeros = [];
-      for (let i = 0; i < lista.length; i++) {
-        numeros.push(document.getElementById(lista[i]).value);
-      }
-      if (this.btn == "Perimetro") {
-        this.calcResult(2 * numeros[0] + 2 * numeros[1], this.btn);
-      } else {
-        this.calcResult(numeros[0] * numeros[1], this.btn);
-      }
-    });
   }
   calcTitle(title, componentes) {
     calcTitle.innerText = title;
     calcInputTitle.innerText = componentes;
   }
-  calcResult(result, text) {
-    if (text == "Perimetro") {
+  calcResult(result) {
+    if (this.calculatorType == "Perimetro") {
       resultText.innerText = `${Math.round(result * 100) / 100} cm`;
     } else {
       resultText.innerText = `${Math.round(result * 100) / 100} cm**2`;
     }
-  }
-  changeImg(img) {
-    calcImg.src = img;
-  }
-  reset() {
-    footer.style.opacity = 1;
-    header.style.opacity = 1;
-    figGeo.style.opacity = 1;
-    calculatorDiv.style.display = "none";
-    calcForm.innerHTML = "";
-    resultText.innerText = "x";
-  }
-  whileCalculate() {
-    calculatorDiv.style.display = "";
-    footer.style.opacity = 0.2;
-    header.style.opacity = 0.2;
-    figGeo.style.opacity = 0.2;
   }
   createNewElement(i) {
     let newInput = document.createElement("input");
@@ -153,38 +92,94 @@ class Calculator {
     calcForm.appendChild(newInput);
     return `calcInput${i}`;
   }
+  validateFigure(id) {
+    switch (id) {
+      case "Cuadrado":
+        calculator.calcTitle("Cuadrado", "Ingrese el valor del lado");
+        if (this.inputsIds == "") {
+          this.inputsIds.push(this.createNewElement(0));
+        }
+        break;
+      case "Triangulo":
+        calcForm.innerHTML = "";
+        this.inputsIds = [];
+        if (chooseBtn.innerText == "Perimetro") {
+          calculator.calcTitle("Triangulo", "Ingrese base, lado 1 y lado 2");
+          if (this.inputsIds == "") {
+            this.inputsIds.push(this.createNewElement(0));
+            this.inputsIds.push(this.createNewElement(1));
+            this.inputsIds.push(this.createNewElement(2));
+          }
+        } else {
+          calculator.calcTitle("Triangulo", "Ingrese base y altura");
+          if (this.inputsIds == "") {
+            this.inputsIds.push(this.createNewElement(0));
+            this.inputsIds.push(this.createNewElement(1));
+          }
+        }
+        break;
+      case "Circulo":
+        calculator.calcTitle("Circulo", "Ingrese el radio");
+        if (this.inputsIds == "") {
+          this.inputsIds.push(this.createNewElement(0));
+        }
+        break;
+      case "Rectangulo":
+        calculator.calcTitle("Rectangulo", "Ingrese el lado 1 2");
+        if (this.inputsIds == "") {
+          this.inputsIds.push(this.createNewElement(0));
+          this.inputsIds.push(this.createNewElement(1));
+        }
+        break;
+    }
+  }
+  validateFigureResult() {
+    switch (this.shape) {
+      case "Cuadrado":
+        this.cuadrado();
+        break;
+      case "Triangulo":
+        this.triangulo();
+        break;
+      case "Circulo":
+        this.circulo();
+        break;
+      case "Rectangulo":
+        this.rectangulo();
+        break;
+    }
+  }
+  cleanInputs() {
+    inputs.forEach((input) => {
+      input.value = "";
+    });
+  }
 }
 
 const calculator = new Calculator();
 
-squareBtn.addEventListener("click", () => {
-  let img = squareBtn.src;
-  calculator.cuadrado(img);
+figureBtns.forEach((button) => {
+  button.addEventListener("click", () => {
+    document.getElementById("calcImg").src = button.src;
+    calculator.validateFigure(button.id);
+    calculator.shape = button.id;
+    calculator.whileCalculate();
+  });
 });
-triangleBtn.addEventListener("click", () => {
-  let img = triangleBtn.src;
-  calculator.triangulo(img);
+calcBtnSubmit.addEventListener("click", () => {
+  calculator.validateFigureResult();
 });
-
-cirlceBtn.addEventListener("click", () => {
-  let img = cirlceBtn.src;
-  calculator.circulo(img);
+chooseBtn.addEventListener("click", () => {
+  if (chooseBtn.innerText == "Perimetro") {
+    chooseBtn.innerText = "Area";
+    calculator.calculatorType = "Area";
+    calculator.validateFigure(calculator.shape);
+  } else {
+    chooseBtn.innerText = "Perimetro";
+    calculator.calculatorType = "Perimetro";
+    calculator.validateFigure(calculator.shape);
+  }
 });
-rectBtn.addEventListener("click", () => {
-  let img = rectBtn.src;
-  calculator.rectangulo(img);
-});
-
 calcCloseBtn.addEventListener("click", () => {
   calculator.reset();
-});
-
-perimetroBtn.addEventListener("click", () => {
-  calculator.btn = perimetroBtn.innerText;
-  console.log(calculator.btn);
-});
-
-areaBtn.addEventListener("click", () => {
-  calculator.btn = areaBtn.innerText;
-  console.log(calculator.btn);
 });
