@@ -1,7 +1,7 @@
 .calculator {
   width: 30vw;
   height: fit-content;
-  position: absolute;
+  position: fixed;
   margin: auto;
   top: 50px;
   left: 0;
@@ -41,7 +41,7 @@
 }
 .calculator__content {
   width: 100%;
-  padding: 0px 50px;
+  padding: 0px 40px;
 }
 
 .calculator__functionality {
@@ -67,7 +67,7 @@
 }
 
 .calculator__img {
-  width: 25%;
+  width: 33%;
   margin: 10px 10px 30px 10px;
 }
 .calculator__form {

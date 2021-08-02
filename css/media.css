@@ -1,0 +1,77 @@
+@media only screen and (max-width: 850px) {
+  .calculator__content {
+    padding: 0px 20px;
+  }
+  .calculator__img {
+    width: 38%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .calculator {
+    width: 40vw;
+    height: fit-content;
+  }
+  .calculator__content {
+    padding: 0px 10px;
+  }
+  .calculator__img {
+    width: 30%;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .figGeo {
+    flex-wrap: wrap;
+    padding: 0px 0px 60px 0px;
+  }
+  .figGeo__shape {
+    width: 40%;
+    padding: 20px 0px;
+  }
+  .calculator {
+    width: 40vw;
+  }
+  .calculator__content {
+    padding: 0px 10px;
+  }
+  .calculator__img {
+    width: 30%;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .calculator {
+    width: 57vw;
+  }
+  .header__title {
+    padding: 0px 20px;
+  }
+  .calculator__content {
+    padding: 0px 10px;
+  }
+  .calculator__img {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  html {
+    font-size: 58.5%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .calculator {
+    width: 95vw;
+    top: 20vh;
+  }
+  .figGeo {
+    flex-wrap: wrap;
+    padding: 0px 0px 60px 0px;
+  }
+  .figGeo__shape {
+    width: 60%;
+    padding: 20px 0px;
+  }
+  .footer {
+    position: relative;
+  }
+}

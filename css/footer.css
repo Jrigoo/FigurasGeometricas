@@ -25,12 +25,12 @@
   justify-content: flex-end;
 }
 .footer__social_media a {
-  width: 50px;
+  width: 8%;
   margin: 0;
   display: flex;
   justify-content: flex-end;
   margin-right: 30px;
 }
 .footer__social_media a img {
-  height: 7vh;
+  width: 90%;
 }

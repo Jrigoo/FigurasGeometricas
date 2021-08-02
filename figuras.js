@@ -81,7 +81,7 @@ class Calculator {
     if (this.calculatorType == "Perimetro") {
       resultText.innerText = `${Math.round(result * 100) / 100} cm`;
     } else {
-      resultText.innerText = `${Math.round(result * 100) / 100} cm**2`;
+      resultText.innerHTML = `${Math.round(result * 100) / 100} cm<sup>2</sup>`;
     }
   }
   createNewElement(i) {
